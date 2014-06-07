@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VRu-1e-1te">
             <objects>
-                <navigationController definesPresentationContext="YES" id="jLu-BW-2Z6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="chatRoomNavigationController" definesPresentationContext="YES" id="jLu-BW-2Z6" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IlA-ch-95E">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -164,7 +164,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aEh-oi-1Ev">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nBR-W7-aRn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="profileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="nBR-W7-aRn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G6q-K4-1qD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -186,6 +186,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RRV-SJ-Ttp"/>
+        <segue reference="XBx-HM-N4Z"/>
     </inferredMetricsTieBreakers>
 </document>
