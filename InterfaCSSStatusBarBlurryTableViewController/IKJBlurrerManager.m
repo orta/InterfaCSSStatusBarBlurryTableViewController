@@ -37,8 +37,11 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 
 - (void)addBlurrer:(IKJBlurrer *)blurrer
 {
-    [_blurrers addObject:blurrer];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
+    IKJBlurrer *existingBlurrer = [self blurrerForPeerID:blurrer.peerID];
+    if (existingBlurrer == nil) {
+        [_blurrers addObject:blurrer];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
+    }
 }
 
 - (void)removeBlurrer:(IKJBlurrer *)blurrer

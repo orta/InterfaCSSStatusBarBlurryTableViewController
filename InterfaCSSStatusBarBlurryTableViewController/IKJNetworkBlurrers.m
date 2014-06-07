@@ -14,6 +14,7 @@
 #import "IKJBlurrerManager.h"
 
 #import <KGStatusBar/KGStatusBar.h>
+@import MultipeerConnectivity;
 
 @implementation IKJNetworkBlurrers
 
@@ -22,21 +23,11 @@
     [MPCMultipeerClient browseWithServiceType:@"blurchat"];
     [MPCMultipeerClient advertiseWithServiceType:@"blurchat"];
 
-    [MPCMultipeerClient onConnect:^(MCPeerID *peerID) {
+    IKJBlurrer *me = [[IKJBlurrerManager sharedManager] user];
+    me.peerID = [MPCMultipeerClient session].myPeerID;
 
+    [MPCMultipeerClient onConnect:^(MCPeerID *otherPeerID) {
         NSLog(@"connected");
-        IKJBlurrer *blurrer = [[IKJBlurrer alloc] init];
-        blurrer.name = @"OK";
-
-
-        IKJChat *chat = [[IKJChat alloc] init];
-        chat.owner = blurrer;
-        chat.message = @"hello";
-
-        IKJBlurrer *me = [[IKJBlurrerManager sharedManager] user];
-        me.peerID = peerID;
-
-        [MPCMultipeerClient sendEvent:@"chat" withObject:chat];
         [MPCMultipeerClient sendEvent:@"announcement" withObject:me];
     }];
 
@@ -50,6 +41,9 @@
 
     [MPCMultipeerClient onEvent:@"announcement" runBlock:^(MCPeerID *peerID, IKJBlurrer *blurrer) {
         NSLog(@"%@ arrived", blurrer.name);
+
+        if ([me.peerID.displayName isEqualToString: peerID.displayName]) return;
+
         [[IKJBlurrerManager sharedManager] addBlurrer:blurrer];
     }];
 
