@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class IKJBlurrer;
+@class IKJBlurrer, MCPeerID;
 
 @interface IKJBlurrerManager : NSObject
 
@@ -17,7 +17,8 @@
 
 - (NSArray*)allBlurrers;
 
-- (IKJBlurrer*)blurrerForName:(NSString*)name;
+- (IKJBlurrer*)blurrerForName:(NSString *)name;
+- (IKJBlurrer*)blurrerForPeerID:(MCPeerID *)name;
 
 - (IKJBlurrer*)user;
 

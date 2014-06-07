@@ -168,9 +168,9 @@
 				672B6DC219438F3300094C8F /* MainStoryboard.storyboard */,
 				6005A2AE1943981C00B2608C /* IKJBlurrerManager.h */,
 				6005A2AF1943981C00B2608C /* IKJBlurrerManager.m */,
-				6005A2AB1943932E00B2608C /* IKJNetworkBlurrers.h */,
 				6005A2B219439CA400B2608C /* Models */,
 				6005A2AC1943932E00B2608C /* IKJNetworkBlurrers.m */,
+				6005A2AB1943932E00B2608C /* IKJNetworkBlurrers.h */,
 			);
 			path = InterfaCSSStatusBarBlurryTableViewController;
 			sourceTree = "<group>";
