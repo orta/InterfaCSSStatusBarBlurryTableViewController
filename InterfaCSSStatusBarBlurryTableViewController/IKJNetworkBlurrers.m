@@ -9,6 +9,9 @@
 #import "IKJNetworkBlurrers.h"
 #import <MPCMultipeerClient/MPCMultipeerClient.h>
 
+#import "IKJChat.h"
+#import "IKJBlurrer.h"
+
 @implementation IKJNetworkBlurrers
 
 + (void)start
@@ -21,9 +24,21 @@
         NSLog(@"BYE");
     }];
 
-    [MPCMultipeerClient onEvent:@"chat" runBlock:^(MCPeerID *peerID, id object) {
-        NSLog(@"CHATTED");
+    [MPCMultipeerClient onEvent:@"chat" runBlock:^(MCPeerID *peerID, IKJChat *chat) {
+        NSLog(@"%@ said '%@'", chat.owner.name, chat.message);
     }];
+
+    [MPCMultipeerClient browseWithServiceType:@"blurchat"];
+
+
+    IKJBlurrer *blurrer = [[IKJBlurrer alloc] init];
+    blurrer.name = @"OK";
+
+    IKJChat *chat = [[IKJChat alloc] init];
+    chat.owner = blurrer;
+    chat.message = @"OK";
+
+    [MPCMultipeerClient sendEvent:@"chat" withObject:chat];
 
 }
 
