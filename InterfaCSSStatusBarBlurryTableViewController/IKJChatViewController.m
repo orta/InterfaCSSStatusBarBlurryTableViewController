@@ -7,6 +7,10 @@
 //
 
 #import "IKJChatViewController.h"
+#import <MPCMultipeerClient/MPCMultipeerClient.h>
+#import "IKJBlurrer.h"
+#import "IKJBlurrerManager.h"
+#import "IKJChat.h"
 
 static NSString * const kJSQDemoAvatarNameCook = @"Tim Cook";
 static NSString * const kJSQDemoAvatarNameJobs = @"Jobs";
@@ -27,14 +31,16 @@ static NSString * const kJSQDemoAvatarNameWoz = @"Steve Wozniak";
      *
      *  You should have a mutable array or orderedSet, or something.
      */
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     [[JSQMessage alloc] initWithText:@"Welcome to JSQMessages: A messaging UI framework for iOS." sender:self.sender date:[NSDate distantPast]],
-                     [[JSQMessage alloc] initWithText:@"It is simple, elegant, and easy to use. There are super sweet default settings, but you can customize like crazy." sender:kJSQDemoAvatarNameWoz date:[NSDate distantPast]],
-                     [[JSQMessage alloc] initWithText:@"It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com." sender:self.sender date:[NSDate distantPast]],
-                     [[JSQMessage alloc] initWithText:@"JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better." sender:kJSQDemoAvatarNameJobs date:[NSDate date]],
-                     [[JSQMessage alloc] initWithText:@"It is unit-tested, free, and open-source." sender:kJSQDemoAvatarNameCook date:[NSDate date]],
-                     [[JSQMessage alloc] initWithText:@"Oh, and there's sweet documentation." sender:self.sender date:[NSDate date]],
-                     nil];
+    self.messages =[[NSMutableArray alloc] init];
+    
+//    [[NSMutableArray alloc] initWithObjects:
+//                     [[JSQMessage alloc] initWithText:@"Welcome to JSQMessages: A messaging UI framework for iOS." sender:self.sender date:[NSDate distantPast]],
+//                     [[JSQMessage alloc] initWithText:@"It is simple, elegant, and easy to use. There are super sweet default settings, but you can customize like crazy." sender:kJSQDemoAvatarNameWoz date:[NSDate distantPast]],
+//                     [[JSQMessage alloc] initWithText:@"It even has data detectors. You can call me tonight. My cell number is 123-456-7890. My website is www.hexedbits.com." sender:self.sender date:[NSDate distantPast]],
+//                     [[JSQMessage alloc] initWithText:@"JSQMessagesViewController is nearly an exact replica of the iOS Messages App. And perhaps, better." sender:kJSQDemoAvatarNameJobs date:[NSDate date]],
+//                     [[JSQMessage alloc] initWithText:@"It is unit-tested, free, and open-source." sender:kJSQDemoAvatarNameCook date:[NSDate date]],
+//                     [[JSQMessage alloc] initWithText:@"Oh, and there's sweet documentation." sender:self.sender date:[NSDate date]],
+//                     nil];
     
     /**
      *  Create avatar images once.
@@ -227,6 +233,12 @@ static NSString * const kJSQDemoAvatarNameWoz = @"Steve Wozniak";
     [self.messages addObject:message];
     
     [self finishSendingMessage];
+    
+    IKJBlurrer *me = [[IKJBlurrerManager sharedManager] user];
+    IKJChat *chat = [[IKJChat alloc] init];
+    chat.owner = me;
+    chat.message = text;
+    [MPCMultipeerClient sendEvent:@"chat" withObject:chat];
 }
 
 - (void)didPressAccessoryButton:(UIButton *)sender

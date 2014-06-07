@@ -9,6 +9,10 @@
 #import "IKJAppDelegate.h"
 #import "IKJNetworkBlurrers.h"
 #import <InterfaCSS/InterfaCSS.h>
+#import "IKJBlurrer.h"
+#import "IKJBlurrerManager.h"
+#import "IKJSettingsViewController.h"
+#import "IKJChatRoomViewController.h"
 
 @implementation IKJAppDelegate
 
@@ -17,6 +21,17 @@
     [IKJNetworkBlurrers start];
 //    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
 
+    IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
+    IKJBlurrer *user = manager.user;
+
+    NSString *name = user.name;
+    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    BOOL hasName = name && name.length > 0;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
+    NSString *identifier = hasName ? @"chatRoomNavigationController" : @"profileNavigationController";
+    UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
+    self.window.rootViewController = rootViewController;
     return YES;
 }
 
