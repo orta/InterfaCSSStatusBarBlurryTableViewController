@@ -60,7 +60,7 @@
             </objects>
             <point key="canvasLocation" x="566" y="-128"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="Pp0-i7-oBN">
             <objects>
                 <viewController id="gCh-ba-cSF" customClass="IKJSettingsViewController" sceneMemberID="viewController">
@@ -71,10 +71,57 @@
                     <view key="view" contentMode="scaleToFill" id="aS9-MY-IJ4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NPr-Js-YME">
+                                <rect key="frame" x="110" y="72" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="NXO-Id-zxM"/>
+                                    <constraint firstAttribute="height" constant="100" id="tu0-gN-Mj9"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ve1-cH-0p9" appends="YES" id="nOR-0Z-2iG"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your blurrer name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o63-xQ-009">
+                                <rect key="frame" x="20" y="180" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gCh-ba-cSF" id="Clt-wg-Yid"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o63-xQ-009" firstAttribute="top" secondItem="NPr-Js-YME" secondAttribute="bottom" constant="8" id="2jM-Hy-0WE"/>
+                            <constraint firstAttribute="trailing" secondItem="o63-xQ-009" secondAttribute="trailing" constant="20" id="F7e-7f-sJ6"/>
+                            <constraint firstAttribute="centerX" secondItem="NPr-Js-YME" secondAttribute="centerX" id="gtY-Da-ceT"/>
+                            <constraint firstItem="NPr-Js-YME" firstAttribute="top" secondItem="qo5-ZF-7BW" secondAttribute="bottom" constant="20" symbolic="YES" id="ujR-6B-e0n"/>
+                            <constraint firstItem="o63-xQ-009" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="20" id="wNu-8k-th5"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="Ipo-JT-wj5">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="SPw-0b-MZE">
+                            <connections>
+                                <action selector="saveAction:" destination="gCh-ba-cSF" id="1gg-Gt-cWf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="NPr-Js-YME" id="gPk-cg-ivo"/>
+                        <outlet property="nameTextField" destination="o63-xQ-009" id="uz0-TX-0fo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPx-6I-Z2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ve1-cH-0p9">
+                    <connections>
+                        <action selector="tapImageAction:" destination="gCh-ba-cSF" id="otE-Oh-0Do"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-171" y="576"/>
         </scene>
