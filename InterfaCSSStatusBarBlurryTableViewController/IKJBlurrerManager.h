@@ -21,4 +21,6 @@
 
 - (IKJBlurrer*)user;
 
+- (void)saveUser:(IKJBlurrer*)blurrer;
+
 @end

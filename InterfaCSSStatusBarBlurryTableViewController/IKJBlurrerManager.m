@@ -74,4 +74,11 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
     return user;
 }
 
+- (void)saveUser:(IKJBlurrer *)user
+{
+    NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:userData forKey:IKJUserDefaultsKeyUser];
+}
+
 @end
