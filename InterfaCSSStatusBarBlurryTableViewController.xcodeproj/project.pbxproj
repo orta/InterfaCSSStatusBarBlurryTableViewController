@@ -21,6 +21,8 @@
 		A045AF311943896F00DEF243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF191943896F00DEF243 /* UIKit.framework */; };
 		A045AF391943896F00DEF243 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A045AF371943896F00DEF243 /* InfoPlist.strings */; };
 		A045AF3B1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF3A1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m */; };
+		A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4519438E4200DEF243 /* IKJBlurrer.m */; };
+		A045AF4919438EA600DEF243 /* IKJBlurrerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		A045AF361943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InterfaCSSStatusBarBlurryTableViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		A045AF381943896F00DEF243 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A045AF3A1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaCSSStatusBarBlurryTableViewControllerTests.m; sourceTree = "<group>"; };
+		A045AF4419438E4200DEF243 /* IKJBlurrer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrer.h; sourceTree = "<group>"; };
+		A045AF4519438E4200DEF243 /* IKJBlurrer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrer.m; sourceTree = "<group>"; };
+		A045AF4719438EA600DEF243 /* IKJBlurrerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrerManager.h; sourceTree = "<group>"; };
+		A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrerManager.m; sourceTree = "<group>"; };
 		BD329F8E2E29471890DBE87C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +126,8 @@
 				A045AF251943896F00DEF243 /* IKJAppDelegate.m */,
 				A045AF271943896F00DEF243 /* Images.xcassets */,
 				A045AF1C1943896F00DEF243 /* Supporting Files */,
+				A045AF4419438E4200DEF243 /* IKJBlurrer.h */,
+				A045AF4519438E4200DEF243 /* IKJBlurrer.m */,
 				6005A2AB1943932E00B2608C /* IKJNetworkBlurrers.h */,
 				6005A2AC1943932E00B2608C /* IKJNetworkBlurrers.m */,
 			);
@@ -286,7 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6005A2AD1943932E00B2608C /* IKJNetworkBlurrers.m in Sources */,
+				A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */,
+				A045AF4919438EA600DEF243 /* IKJBlurrerManager.m in Sources */,
 				A045AF221943896F00DEF243 /* main.m in Sources */,
 				A045AF261943896F00DEF243 /* IKJAppDelegate.m in Sources */,
 			);
