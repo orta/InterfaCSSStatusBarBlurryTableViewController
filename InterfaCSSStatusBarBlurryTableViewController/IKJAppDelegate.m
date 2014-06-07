@@ -32,6 +32,8 @@
     NSString *identifier = hasName ? @"chatRoomNavigationController" : @"profileNavigationController";
     UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     self.window.rootViewController = rootViewController;
+    
+    self.window.tintColor = user.color;
     return YES;
 }
 

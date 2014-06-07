@@ -188,6 +188,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="collectionView" destination="XMV-le-e71" id="Y6i-mS-fgr"/>
                         <outlet property="imageView" destination="NPr-Js-YME" id="gPk-cg-ivo"/>
                         <outlet property="nameTextField" destination="o63-xQ-009" id="uz0-TX-0fo"/>
                         <outlet property="startButton" destination="AzB-qk-bXN" id="wkl-ha-ytY"/>
@@ -228,6 +229,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RRV-SJ-Ttp"/>
+        <segue reference="XBx-HM-N4Z"/>
     </inferredMetricsTieBreakers>
 </document>

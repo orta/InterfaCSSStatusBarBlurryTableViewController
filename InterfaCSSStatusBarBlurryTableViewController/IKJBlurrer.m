@@ -13,7 +13,7 @@
 
 - (UIColor*)color
 {
-    return [UIColor colorWithString:self.name];
+    return self.colorName ? [UIColor colorWithString:self.colorName] : nil;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder

@@ -1,7 +1,7 @@
-@green: rgb(76, 217, 100);
-@blue: rgb(52, 170, 220);
-@red: rgb(255, 45, 85);
-@orange: rgb(255, 149, 0);
+@green: #4CD964;
+@blue: #34AADC;
+@red: #FF3B30;
+@orange: #FF9500;
 
 
 UIImageView.circle {
