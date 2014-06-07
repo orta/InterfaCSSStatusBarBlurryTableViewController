@@ -80,7 +80,7 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 }
 
 
-- (IKJBlurrer*)user
+- (IKJBlurrer *)user
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *userData = [defaults objectForKey:IKJUserDefaultsKeyUser];

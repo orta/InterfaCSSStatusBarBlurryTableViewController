@@ -74,7 +74,6 @@
     //[super scrollViewWillBeginDragging:scrollView];   // pull to refresh
     
     self.isScrolling = YES;
-    NSLog(@"+scrollViewWillBeginDragging");
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -84,7 +83,6 @@
     if(!decelerate) {
         self.isScrolling = NO;
     }
-    NSLog(@"%@scrollViewDidEndDragging", self.isScrolling ? @"" : @"-");
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -93,14 +91,6 @@
         IKJChatViewController *vc = [[IKJChatViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-
-    NSLog(@"-scrollViewDidEndDecelerating");
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableView delegate

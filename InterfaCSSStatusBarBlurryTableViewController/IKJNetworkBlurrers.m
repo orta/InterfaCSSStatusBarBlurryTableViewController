@@ -27,7 +27,9 @@
     me.peerID = [MPCMultipeerClient session].myPeerID;
 
     [MPCMultipeerClient onConnect:^(MCPeerID *otherPeerID) {
-        NSLog(@"connected");
+        NSLog(@"%@ connected", otherPeerID);
+
+        me.peerID = [MPCMultipeerClient session].myPeerID;
         [MPCMultipeerClient sendEvent:@"announcement" withObject:me];
     }];
 
@@ -51,7 +53,6 @@
         NSString *message = [NSString stringWithFormat:@"%@ said '%@'", chat.owner.name, chat.message];
         [KGStatusBar showWithStatus:message];
     }];
-
 }
 
 @end

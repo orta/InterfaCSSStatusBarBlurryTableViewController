@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [IKJNetworkBlurrers start];
-    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
+//    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
 
     return YES;
 }
