@@ -7,12 +7,13 @@
 //
 
 #import "IKJBlurrer.h"
+#import <ColorUtils/ColorUtils.h>
 
 @implementation IKJBlurrer
 
 - (UIColor*)color
-{ // TODO
-    return [UIColor redColor];
+{
+    return [UIColor colorWithString:self.name];
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder
