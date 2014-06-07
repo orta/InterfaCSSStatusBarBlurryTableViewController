@@ -100,6 +100,7 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
     NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:userData forKey:IKJUserDefaultsKeyUser];
+    [defaults synchronize];
 }
 
 @end

@@ -8,12 +8,9 @@
 
 #import "IKJChatRoomViewController.h"
 #import "IKJChatRoomTableViewCell.h"
-<<<<<<< HEAD
 #import "IKJBlurrerManager.h"
 #import "IKJBlurrer.h"
-=======
 #import "IKJChatViewController.h"
->>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
 @interface IKJChatRoomViewController ()
 
@@ -99,8 +96,6 @@
 
     NSLog(@"-scrollViewDidEndDecelerating");
 }
-
->>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
 - (void)didReceiveMemoryWarning
 {
