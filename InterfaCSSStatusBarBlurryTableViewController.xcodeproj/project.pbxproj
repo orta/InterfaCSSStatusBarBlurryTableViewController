@@ -24,6 +24,7 @@
 		A045AF3B1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF3A1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m */; };
 		A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4519438E4200DEF243 /* IKJBlurrer.m */; };
 		A045AF4919438EA600DEF243 /* IKJBlurrerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */; };
+		A045AF4C1943967D00DEF243 /* IKJSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		A045AF4519438E4200DEF243 /* IKJBlurrer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrer.m; sourceTree = "<group>"; };
 		A045AF4719438EA600DEF243 /* IKJBlurrerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrerManager.h; sourceTree = "<group>"; };
 		A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrerManager.m; sourceTree = "<group>"; };
+		A045AF4A1943967D00DEF243 /* IKJSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJSettingsViewController.h; sourceTree = "<group>"; };
+		A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJSettingsViewController.m; sourceTree = "<group>"; };
 		BD329F8E2E29471890DBE87C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +97,8 @@
 			children = (
 				672B6DC51943903400094C8F /* IKJChatRoomViewController.h */,
 				672B6DC61943903400094C8F /* IKJChatRoomViewController.m */,
+				A045AF4A1943967D00DEF243 /* IKJSettingsViewController.h */,
+				A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */,
 				A045AF4919438EA600DEF243 /* IKJBlurrerManager.m in Sources */,
 				A045AF221943896F00DEF243 /* main.m in Sources */,
+				A045AF4C1943967D00DEF243 /* IKJSettingsViewController.m in Sources */,
 				A045AF261943896F00DEF243 /* IKJAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
