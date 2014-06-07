@@ -10,6 +10,7 @@
 		2ED34793E08C4CFCA48F9C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD329F8E2E29471890DBE87C /* libPods.a */; };
 		6005A2B01943981C00B2608C /* IKJBlurrerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005A2AF1943981C00B2608C /* IKJBlurrerManager.m */; };
 		6005A2B1194398CD00B2608C /* IKJNetworkBlurrers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005A2AC1943932E00B2608C /* IKJNetworkBlurrers.m */; };
+		6005A2B519439CBE00B2608C /* IKJChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6005A2B419439CBE00B2608C /* IKJChat.m */; };
 		672B6DC319438F3300094C8F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B6DC219438F3300094C8F /* MainStoryboard.storyboard */; };
 		672B6DC71943903400094C8F /* IKJChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DC61943903400094C8F /* IKJChatRoomViewController.m */; };
 		672B6DCA1943922E00094C8F /* IKJChatRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DC91943922E00094C8F /* IKJChatRoomTableViewCell.m */; };
@@ -46,6 +47,8 @@
 		6005A2AC1943932E00B2608C /* IKJNetworkBlurrers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJNetworkBlurrers.m; sourceTree = "<group>"; };
 		6005A2AE1943981C00B2608C /* IKJBlurrerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrerManager.h; sourceTree = "<group>"; };
 		6005A2AF1943981C00B2608C /* IKJBlurrerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrerManager.m; sourceTree = "<group>"; };
+		6005A2B319439CBE00B2608C /* IKJChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJChat.h; sourceTree = "<group>"; };
+		6005A2B419439CBE00B2608C /* IKJChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChat.m; sourceTree = "<group>"; };
 		672B6DC219438F3300094C8F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		672B6DC51943903400094C8F /* IKJChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJChatRoomViewController.h; sourceTree = "<group>"; };
 		672B6DC61943903400094C8F /* IKJChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChatRoomViewController.m; sourceTree = "<group>"; };
@@ -100,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6005A2B219439CA400B2608C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A045AF4419438E4200DEF243 /* IKJBlurrer.h */,
+				A045AF4519438E4200DEF243 /* IKJBlurrer.m */,
+				6005A2B319439CBE00B2608C /* IKJChat.h */,
+				6005A2B419439CBE00B2608C /* IKJChat.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		672B6DC41943900500094C8F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,11 +169,10 @@
 				A045AF271943896F00DEF243 /* Images.xcassets */,
 				A045AF1C1943896F00DEF243 /* Supporting Files */,
 				672B6DC219438F3300094C8F /* MainStoryboard.storyboard */,
-				A045AF4419438E4200DEF243 /* IKJBlurrer.h */,
-				A045AF4519438E4200DEF243 /* IKJBlurrer.m */,
 				6005A2AE1943981C00B2608C /* IKJBlurrerManager.h */,
 				6005A2AF1943981C00B2608C /* IKJBlurrerManager.m */,
 				6005A2AB1943932E00B2608C /* IKJNetworkBlurrers.h */,
+				6005A2B219439CA400B2608C /* Models */,
 				6005A2AC1943932E00B2608C /* IKJNetworkBlurrers.m */,
 			);
 			path = InterfaCSSStatusBarBlurryTableViewController;
@@ -329,6 +342,7 @@
 			files = (
 				6005A2B1194398CD00B2608C /* IKJNetworkBlurrers.m in Sources */,
 				672B6DC71943903400094C8F /* IKJChatRoomViewController.m in Sources */,
+				6005A2B519439CBE00B2608C /* IKJChat.m in Sources */,
 				A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */,
 				A045AF221943896F00DEF243 /* main.m in Sources */,
 				A045AF4C1943967D00DEF243 /* IKJSettingsViewController.m in Sources */,
