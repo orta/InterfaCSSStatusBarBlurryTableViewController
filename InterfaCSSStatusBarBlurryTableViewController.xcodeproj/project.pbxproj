@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2ED34793E08C4CFCA48F9C56 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD329F8E2E29471890DBE87C /* libPods.a */; };
 		672B6DC319438F3300094C8F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B6DC219438F3300094C8F /* MainStoryboard.storyboard */; };
+		672B6DC71943903400094C8F /* IKJChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DC61943903400094C8F /* IKJChatRoomViewController.m */; };
 		A045AF161943896F00DEF243 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF151943896F00DEF243 /* Foundation.framework */; };
 		A045AF181943896F00DEF243 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF171943896F00DEF243 /* CoreGraphics.framework */; };
 		A045AF1A1943896F00DEF243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF191943896F00DEF243 /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		1EF5D25F82094C7EBD437D40 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		672B6DC219438F3300094C8F /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		672B6DC51943903400094C8F /* IKJChatRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJChatRoomViewController.h; sourceTree = "<group>"; };
+		672B6DC61943903400094C8F /* IKJChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChatRoomViewController.m; sourceTree = "<group>"; };
 		A045AF121943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterfaCSSStatusBarBlurryTableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A045AF151943896F00DEF243 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A045AF171943896F00DEF243 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		672B6DC41943900500094C8F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				672B6DC51943903400094C8F /* IKJChatRoomViewController.h */,
+				672B6DC61943903400094C8F /* IKJChatRoomViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		A045AF091943896F00DEF243 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 		A045AF1B1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				672B6DC41943900500094C8F /* ViewControllers */,
 				A045AF241943896F00DEF243 /* IKJAppDelegate.h */,
 				A045AF251943896F00DEF243 /* IKJAppDelegate.m */,
 				A045AF271943896F00DEF243 /* Images.xcassets */,
@@ -285,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				672B6DC71943903400094C8F /* IKJChatRoomViewController.m in Sources */,
 				A045AF221943896F00DEF243 /* main.m in Sources */,
 				A045AF261943896F00DEF243 /* IKJAppDelegate.m in Sources */,
 			);
