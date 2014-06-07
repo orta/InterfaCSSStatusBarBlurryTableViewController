@@ -1,4 +1,5 @@
 PODS:
+  - ColorUtils (1.1.2)
   - InterfaCSS (0.9.1):
     - Parcoa (~> 0.0.1)
   - JAQBlurryTableViewController (0.0.2)
@@ -6,11 +7,13 @@ PODS:
   - Parcoa (0.0.1)
 
 DEPENDENCIES:
+  - ColorUtils
   - InterfaCSS (~> 0.9.1)
   - JAQBlurryTableViewController (~> 0.0.2)
   - KGStatusBar (~> 1.0)
 
 SPEC CHECKSUMS:
+  ColorUtils: 2455988658eafc34f302a7d91113d7a9415d072c
   InterfaCSS: 4052a1aa8137a789db1317bb7e5f8665d3fac439
   JAQBlurryTableViewController: edcbb0d466d6c491d2b7863b290260161d1f1248
   KGStatusBar: b542c67ae300d91ebc22172e22c0389431a915e7
