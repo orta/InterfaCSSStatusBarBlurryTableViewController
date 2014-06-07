@@ -14,6 +14,7 @@
 + (instancetype)sharedManager;
 
 - (void)addBlurrer:(IKJBlurrer*)blurrer;
+- (void)removeBlurrer:(IKJBlurrer*)blurrer;
 
 - (NSArray*)allBlurrers;
 

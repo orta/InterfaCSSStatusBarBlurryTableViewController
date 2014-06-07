@@ -8,12 +8,15 @@
 
 #import "IKJAppDelegate.h"
 #import "IKJNetworkBlurrers.h"
+#import <InterfaCSS/InterfaCSS.h>
 
 @implementation IKJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [IKJNetworkBlurrers start];
+    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
+
     return YES;
 }
 

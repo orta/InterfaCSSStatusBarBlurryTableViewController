@@ -9,6 +9,7 @@
 #import "IKJSettingsViewController.h"
 #import "IKJBlurrerManager.h"
 #import "IKJBlurrer.h"
+#import <InterfaCSS/UIView+InterfaCSS.h>
 
 @interface IKJSettingsViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -30,8 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.imageView.layer.borderWidth = 0.5;
-    self.imageView.layer.cornerRadius = 50;
+    self.imageView.styleClassISS = @"circle";
 }
 
 - (void)didReceiveMemoryWarning

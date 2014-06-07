@@ -8,6 +8,8 @@
 
 #import "IKJChatRoomViewController.h"
 #import "IKJChatRoomTableViewCell.h"
+#import "IKJBlurrerManager.h"
+#import "IKJBlurrer.h"
 
 @interface IKJChatRoomViewController ()
 
@@ -27,11 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [self configureBannerWithImage:[UIImage imageNamed:@"tiger"] height:200 blurRadius:12 blurTintColor:[UIColor colorWithWhite:0 alpha:0.5] saturationFactor:1];
+}
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"updated_blurrers" object:nil];
+}
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updated_blurrers" object:nil];
+}
 
+- (void)reload
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,21 +56,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
 #pragma mark - UITableView delegate
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,16 +78,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [[[IKJBlurrerManager sharedManager] allBlurrers] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IKJChatRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IKJChatRoomTableViewCell" forIndexPath:indexPath];
-    NSArray *images = @[@"balloons",@"tiger",@"whaou"];
-    NSString *imageName = [images objectAtIndex:indexPath.row];
-    cell.blurredProfileImage.image = [self blur:[UIImage imageNamed:imageName]];
+
+    IKJBlurrer *blurrer = [[IKJBlurrerManager sharedManager] allBlurrers][indexPath.row];
+    cell.textLabel.text = blurrer.peerID.displayName;
 
     return cell;
 }

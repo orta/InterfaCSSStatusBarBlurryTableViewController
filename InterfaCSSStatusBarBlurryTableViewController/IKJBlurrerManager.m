@@ -38,6 +38,13 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 - (void)addBlurrer:(IKJBlurrer *)blurrer
 {
     [_blurrers addObject:blurrer];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
+}
+
+- (void)removeBlurrer:(IKJBlurrer *)blurrer
+{
+    [_blurrers removeObject:blurrer];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
 }
 
 - (NSArray*)allBlurrers

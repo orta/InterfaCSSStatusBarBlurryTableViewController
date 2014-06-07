@@ -17,30 +17,24 @@
 
 + (void)start
 {
+    [MPCMultipeerClient browseWithServiceType:@"blurchat"];
     [MPCMultipeerClient advertiseWithServiceType:@"blurchat"];
 
     [MPCMultipeerClient onDisconnect:^(MCPeerID *peerID) {
         IKJBlurrer *blurrer = [[IKJBlurrerManager sharedManager] blurrerForPeerID:peerID];
-        NSLog(@"%@ BYE BYE", blurrer.name);
+        [[IKJBlurrerManager sharedManager] removeBlurrer:blurrer];
 
+        NSLog(@"%@ BYE BYE", blurrer.name);
     }];
 
     [MPCMultipeerClient onEvent:@"announcement" runBlock:^(MCPeerID *peerID, IKJBlurrer *blurrer) {
         NSLog(@"%@ arrived", blurrer.name);
-    }];
-
-
-    [MPCMultipeerClient onEvent:@"chat" runBlock:^(MCPeerID *peerID, IKJChat *chat) {
-        NSLog(@"%@ said '%@'", chat.owner.name, chat.message);
+        [[IKJBlurrerManager sharedManager] addBlurrer:blurrer];
     }];
 
     [MPCMultipeerClient onEvent:@"chat" runBlock:^(MCPeerID *peerID, IKJChat *chat) {
         NSLog(@"%@ said '%@'", chat.owner.name, chat.message);
     }];
-
-
-    [MPCMultipeerClient browseWithServiceType:@"blurchat"];
-
 
     IKJBlurrer *blurrer = [[IKJBlurrer alloc] init];
     blurrer.name = @"OK";
