@@ -8,8 +8,12 @@
 
 #import "IKJChatRoomViewController.h"
 #import "IKJChatRoomTableViewCell.h"
+#import "IKJChatViewController.h"
 
 @interface IKJChatRoomViewController ()
+
+@property (nonatomic) BOOL shouldShowChat;
+@property (nonatomic) BOOL isScrolling;
 
 @end
 
@@ -32,13 +36,20 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.shouldShowChat = YES;
+    
+    // Do any additional setup after loading the view.
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -47,7 +58,47 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [super scrollViewDidScroll:scrollView];
+    if (self.shouldShowChat) {
+        float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+        if (bottomEdge < scrollView.contentSize.height) {
+            self.shouldShowChat = NO;
+        }
+    }
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    //[super scrollViewWillBeginDragging:scrollView];   // pull to refresh
+    
+    self.isScrolling = YES;
+    NSLog(@"+scrollViewWillBeginDragging");
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    //[super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];    // pull to refresh
+    
+    if(!decelerate) {
+        self.isScrolling = NO;
+    }
+    NSLog(@"%@scrollViewDidEndDragging", self.isScrolling ? @"" : @"-");
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.isScrolling = NO;
+    if (!self.shouldShowChat) {
+        IKJChatViewController *vc = [[IKJChatViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
+    NSLog(@"-scrollViewDidEndDecelerating");
+}
+
 
 
 #pragma mark - UITableView delegate
