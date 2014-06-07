@@ -8,6 +8,7 @@
 
 #import "IKJBlurrerManager.h"
 #import "IKJBlurrer.h"
+#import <MPCMultipeerClient/MPCMultipeerClient.h>
 
 static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 
@@ -37,6 +38,13 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 - (void)addBlurrer:(IKJBlurrer *)blurrer
 {
     [_blurrers addObject:blurrer];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
+}
+
+- (void)removeBlurrer:(IKJBlurrer *)blurrer
+{
+    [_blurrers removeObject:blurrer];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"updated_blurrers" object:nil];
 }
 
 - (NSArray*)allBlurrers
@@ -55,6 +63,19 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
     }
     return nil;
 }
+
+- (IKJBlurrer *)blurrerForPeerID:(MCPeerID *)peerID
+{
+    for (IKJBlurrer *blurrer in _blurrers)
+    {
+        if ([blurrer.peerID isEqual:peerID])
+        {
+            return blurrer;
+        }
+    }
+    return nil;
+}
+
 
 - (IKJBlurrer*)user
 {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MPCMultipeerClient/MPCMultipeerClient.h>
 
 @interface IKJBlurrer : NSObject<NSCoding>
 
@@ -15,5 +16,6 @@
 @property (nonatomic, copy) NSString *colorName;
 @property (nonatomic, readonly) UIColor *color;
 @property (nonatomic, assign) BOOL unblurred;
+@property (nonatomic, strong) MCPeerID *peerID;
 
 @end

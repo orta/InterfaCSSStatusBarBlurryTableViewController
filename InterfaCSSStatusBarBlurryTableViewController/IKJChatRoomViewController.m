@@ -8,7 +8,12 @@
 
 #import "IKJChatRoomViewController.h"
 #import "IKJChatRoomTableViewCell.h"
+<<<<<<< HEAD
+#import "IKJBlurrerManager.h"
+#import "IKJBlurrer.h"
+=======
 #import "IKJChatViewController.h"
+>>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
 @interface IKJChatRoomViewController ()
 
@@ -31,10 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self configureBannerWithImage:[UIImage imageNamed:@"tiger"] height:200 blurRadius:12 blurTintColor:[UIColor colorWithWhite:0 alpha:0.5] saturationFactor:1];
 
-    // Do any additional setup after loading the view.
+    [self configureBannerWithImage:[UIImage imageNamed:@"tiger"] height:200 blurRadius:12 blurTintColor:[UIColor colorWithWhite:0 alpha:0.5] saturationFactor:1];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -42,22 +45,19 @@
     [super viewWillAppear:animated];
     self.shouldShowChat = YES;
     
-    // Do any additional setup after loading the view.
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"updated_blurrers" object:nil];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"updated_blurrers" object:nil];
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)reload
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.tableView reloadData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -100,11 +100,15 @@
     NSLog(@"-scrollViewDidEndDecelerating");
 }
 
+>>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 #pragma mark - UITableView delegate
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -126,16 +130,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [[[IKJBlurrerManager sharedManager] allBlurrers] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     IKJChatRoomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IKJChatRoomTableViewCell" forIndexPath:indexPath];
-    NSArray *images = @[@"balloons",@"tiger",@"whaou"];
-    NSString *imageName = [images objectAtIndex:indexPath.row];
-    cell.blurredProfileImage.image = [self blur:[UIImage imageNamed:imageName]];
+
+    IKJBlurrer *blurrer = [[IKJBlurrerManager sharedManager] allBlurrers][indexPath.row];
+    cell.textLabel.text = blurrer.peerID.displayName;
 
     return cell;
 }
