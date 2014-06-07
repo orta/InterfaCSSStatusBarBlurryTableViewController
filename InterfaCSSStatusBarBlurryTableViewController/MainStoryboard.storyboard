@@ -124,19 +124,22 @@
                                     <action selector="startAction:" destination="gCh-ba-cSF" eventType="touchUpInside" id="JKL-rx-BQR"/>
                                 </connections>
                             </button>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XMV-le-e71">
-                                <rect key="frame" x="0.0" y="226" width="320" height="53"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XMV-le-e71">
+                                <rect key="frame" x="0.0" y="247" width="320" height="53"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="kE8-hW-XBH"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oFY-7P-Ibk">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="4TL-ta-obK">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="20" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -150,17 +153,30 @@
                                     <outlet property="delegate" destination="gCh-ba-cSF" id="pdu-pW-q0c"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pick a color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hF-jH-ivu">
+                                <rect key="frame" x="20" y="218" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XMV-le-e71" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" id="10T-XU-OBQ"/>
                             <constraint firstItem="o63-xQ-009" firstAttribute="top" secondItem="NPr-Js-YME" secondAttribute="bottom" constant="8" id="2jM-Hy-0WE"/>
                             <constraint firstAttribute="trailing" secondItem="o63-xQ-009" secondAttribute="trailing" constant="20" id="F7e-7f-sJ6"/>
+                            <constraint firstAttribute="trailing" secondItem="XMV-le-e71" secondAttribute="trailing" id="K1I-jW-hDw"/>
+                            <constraint firstItem="7hF-jH-ivu" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="20" symbolic="YES" id="OL4-Q0-jjd"/>
                             <constraint firstItem="AzB-qk-bXN" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="-1" id="Ow2-Sr-r4s"/>
                             <constraint firstItem="lOu-Pu-csh" firstAttribute="top" secondItem="AzB-qk-bXN" secondAttribute="bottom" constant="20" id="PwN-oN-0nY"/>
+                            <constraint firstItem="7hF-jH-ivu" firstAttribute="top" secondItem="o63-xQ-009" secondAttribute="bottom" constant="8" id="Xy9-8g-uSb"/>
                             <constraint firstAttribute="trailing" secondItem="AzB-qk-bXN" secondAttribute="trailing" constant="-1" id="bZ9-w1-Gip"/>
                             <constraint firstAttribute="centerX" secondItem="NPr-Js-YME" secondAttribute="centerX" id="gtY-Da-ceT"/>
+                            <constraint firstAttribute="trailing" secondItem="7hF-jH-ivu" secondAttribute="trailing" constant="20" symbolic="YES" id="i3d-ap-YLX"/>
                             <constraint firstItem="NPr-Js-YME" firstAttribute="top" secondItem="qo5-ZF-7BW" secondAttribute="bottom" constant="20" symbolic="YES" id="ujR-6B-e0n"/>
                             <constraint firstItem="o63-xQ-009" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="20" id="wNu-8k-th5"/>
+                            <constraint firstItem="XMV-le-e71" firstAttribute="top" secondItem="7hF-jH-ivu" secondAttribute="bottom" constant="8" symbolic="YES" id="yTf-ZO-c1r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="Ipo-JT-wj5">

@@ -1,4 +1,8 @@
 @green: rgb(76, 217, 100);
+@blue: rgb(52, 170, 220);
+@red: rgb(255, 45, 85);
+@orange: rgb(255, 149, 0);
+
 
 UIImageView.circle {
     borderColor: #7f7f7f;
@@ -9,4 +13,26 @@ UIImageView.circle {
 
 .green {
     backgroundColor: @green;
+}
+
+.blue {
+    backgroundColor: @blue;
+}
+
+.red {
+    backgroundColor: @red;
+}
+
+.orange {
+    backgroundColor: @orange;
+}
+
+.selectableColor {
+    cornerRadius: 8;
+    clipsToBounds: YES;
+}
+
+.selectedColor {
+    borderColor: #7f7f7f;
+    borderWidth: 2;
 }

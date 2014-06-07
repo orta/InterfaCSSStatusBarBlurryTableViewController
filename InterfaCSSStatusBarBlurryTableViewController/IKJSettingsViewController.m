@@ -118,7 +118,13 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.contentView.styleClassISS = @"green";
+    static NSArray *Colors = nil;
+    if (!Colors)
+    {
+        Colors = @[@"green", @"red", @"blue", @"orange"];
+    }
+    [cell.contentView addStyleClassISS:@"selectableColor"];
+    [cell.contentView addStyleClassISS:Colors[indexPath.row]];
     return cell;
 }
 
@@ -126,8 +132,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
+    for (UICollectionViewCell *cell in collectionView.visibleCells)
+    {
+        [cell.contentView removeStyleClassISS:@"selectedColor" animated:YES];
+        cell.contentView.layer.borderWidth = 0;
+    }
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [cell.contentView addStyleClassISS:@"selectedColor" animated:YES];
 }
 
 @end

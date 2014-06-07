@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [IKJNetworkBlurrers start];
-//    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
+    [[InterfaCSS interfaCSS] loadStyleSheetFromMainBundleFile:@"main.css"];
 
     IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
     IKJBlurrer *user = manager.user;
