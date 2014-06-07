@@ -36,7 +36,13 @@
                             <outlet property="delegate" destination="hC1-0U-2EG" id="py5-8K-iXa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="i71-YX-Bbf"/>
+                    <navigationItem key="navigationItem" id="i71-YX-Bbf">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="qTh-ke-MyO">
+                            <connections>
+                                <segue destination="gCh-ba-cSF" kind="push" id="RRV-SJ-Ttp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGd-ie-2Ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jg8-R2-W6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="566" y="-128"/>
+            <point key="canvasLocation" x="566" y="-118"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="Pp0-i7-oBN">
@@ -123,7 +129,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-171" y="576"/>
+            <point key="canvasLocation" x="162" y="-809"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aEh-oi-1Ev">
