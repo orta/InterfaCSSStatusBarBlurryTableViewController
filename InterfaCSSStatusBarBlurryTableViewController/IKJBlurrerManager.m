@@ -84,18 +84,14 @@ static NSString *const IKJUserDefaultsKeyUser = @"IKJUser";
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *userData = [defaults objectForKey:IKJUserDefaultsKeyUser];
-    IKJBlurrer *user = nil;
-    if (!userData)
+    if (userData)
     {
-        user = [IKJBlurrer new];
-        userData = [NSKeyedArchiver archivedDataWithRootObject:user];
-        [defaults setObject:userData forKey:IKJUserDefaultsKeyUser];
+        return [NSKeyedUnarchiver unarchiveObjectWithData:userData];
     }
     else
     {
-        user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        return nil;
     }
-    return user;
 }
 
 - (void)saveUser:(IKJBlurrer *)user

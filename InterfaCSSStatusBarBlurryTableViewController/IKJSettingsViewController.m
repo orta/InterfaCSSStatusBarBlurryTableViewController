@@ -49,21 +49,30 @@ static NSArray *Colors = nil;
     
     IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
     IKJBlurrer *user = manager.user;
-    self.nameTextField.text = user.name;
-    self.imageView.image = user.image;
-    if (user.colorName)
+    if (user)
     {
-        [self.collectionView reloadData];
-        NSString *normalizedColorName = user.colorName.lowercaseString;
-        [Colors enumerateObjectsUsingBlock:^(NSString *colorName, NSUInteger idx, BOOL *stop) {
-            NSString *colorValue = [[InterfaCSS interfaCSS] valueOfStyleSheetVariableWithName:colorName];
-            if ([colorValue.lowercaseString isEqualToString:normalizedColorName])
-            {
-                _selectedIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-                *stop = YES;
-            }
-        }];
+        self.nameTextField.text = user.name;
+        self.imageView.image = user.image;
+        if (user.colorName)
+        {
+            [self.collectionView reloadData];
+            NSString *normalizedColorName = user.colorName.lowercaseString;
+            [Colors enumerateObjectsUsingBlock:^(NSString *colorName, NSUInteger idx, BOOL *stop) {
+                NSString *colorValue = [[InterfaCSS interfaCSS] valueOfStyleSheetVariableWithName:colorName];
+                if ([colorValue.lowercaseString isEqualToString:normalizedColorName])
+                {
+                    _selectedIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+                    *stop = YES;
+                }
+            }];
+        }
+        self.startButton.hidden = YES;
     }
+    else
+    {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

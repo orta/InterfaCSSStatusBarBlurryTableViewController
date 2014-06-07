@@ -24,12 +24,9 @@
     IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
     IKJBlurrer *user = manager.user;
 
-    NSString *name = user.name;
-    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    BOOL hasName = name && name.length > 0;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
-    NSString *identifier = hasName ? @"chatRoomNavigationController" : @"profileNavigationController";
+    NSString *identifier = user ? @"chatRoomNavigationController" : @"profileNavigationController";
     UIViewController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:identifier];
     self.window.rootViewController = rootViewController;
     
