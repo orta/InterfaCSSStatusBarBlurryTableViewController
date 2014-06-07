@@ -14,6 +14,7 @@
 @interface IKJSettingsViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @end
 
@@ -32,6 +33,11 @@
 {
     [super viewDidLoad];
     self.imageView.styleClassISS = @"circle";
+    
+    IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
+    IKJBlurrer *user = manager.user;
+    self.nameTextField.text = user.name;
+    self.imageView.image = user.image;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,18 +47,7 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    NSString *name = self.nameTextField.text;
-    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (!name || name.length > 0) {
-        // TODO
-        return;
-    }
-    IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
-    IKJBlurrer *user = manager.user;
-    user.name = name;
-    user.image = self.imageView.image;
-    
-    [manager saveUser:user];
+    [self saveUser];
 }
 
 - (IBAction)tapImageAction:(id)sender
@@ -65,6 +60,13 @@
     controller.sourceType = UIImagePickerControllerSourceTypeCamera;
 #endif
     [self presentViewController:controller animated:YES completion:^{}];
+}
+
+- (IBAction)startAction:(id)sender {
+    if ([self saveUser])
+    {
+        [self performSegueWithIdentifier:@"start" sender:self];
+    }
 }
 
 #pragma mark UIImagePickerControllerDelegate
@@ -80,6 +82,23 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    return YES;
+}
+
+- (BOOL)saveUser
+{
+    NSString *name = self.nameTextField.text;
+    name = [name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (!name || name.length == 0) {
+        // TODO
+        return NO;
+    }
+    IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
+    IKJBlurrer *user = manager.user;
+    user.name = name;
+    user.image = self.imageView.image;
+    
+    [manager saveUser:user];
     return YES;
 }
 
