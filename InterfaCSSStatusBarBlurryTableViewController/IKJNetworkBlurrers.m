@@ -13,12 +13,33 @@
 #import "IKJBlurrer.h"
 #import "IKJBlurrerManager.h"
 
+#import <KGStatusBar/KGStatusBar.h>
+
 @implementation IKJNetworkBlurrers
 
 + (void)start
 {
     [MPCMultipeerClient browseWithServiceType:@"blurchat"];
     [MPCMultipeerClient advertiseWithServiceType:@"blurchat"];
+
+    [MPCMultipeerClient onConnect:^(MCPeerID *peerID) {
+
+        NSLog(@"connected");
+        IKJBlurrer *blurrer = [[IKJBlurrer alloc] init];
+        blurrer.name = @"OK";
+
+
+        IKJChat *chat = [[IKJChat alloc] init];
+        chat.owner = blurrer;
+        chat.message = @"hello";
+
+        IKJBlurrer *me = [[IKJBlurrerManager sharedManager] user];
+        me.peerID = peerID;
+
+        [MPCMultipeerClient sendEvent:@"chat" withObject:chat];
+        [MPCMultipeerClient sendEvent:@"announcement" withObject:me];
+    }];
+
 
     [MPCMultipeerClient onDisconnect:^(MCPeerID *peerID) {
         IKJBlurrer *blurrer = [[IKJBlurrerManager sharedManager] blurrerForPeerID:peerID];
@@ -33,20 +54,9 @@
     }];
 
     [MPCMultipeerClient onEvent:@"chat" runBlock:^(MCPeerID *peerID, IKJChat *chat) {
-        NSLog(@"%@ said '%@'", chat.owner.name, chat.message);
+        NSString *message = [NSString stringWithFormat:@"%@ said '%@'", chat.owner.name, chat.message];
+        [KGStatusBar showWithStatus:message];
     }];
-
-    IKJBlurrer *blurrer = [[IKJBlurrer alloc] init];
-    blurrer.name = @"OK";
-
-    IKJChat *chat = [[IKJChat alloc] init];
-    chat.owner = blurrer;
-    chat.message = @"OK";
-
-    IKJBlurrer *me = [[IKJBlurrerManager sharedManager] user];
-
-    [MPCMultipeerClient sendEvent:@"chat" withObject:chat];
-    [MPCMultipeerClient sendEvent:@"announcement" withObject:me];
 
 }
 
