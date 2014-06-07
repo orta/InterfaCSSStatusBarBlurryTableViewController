@@ -52,9 +52,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="i71-YX-Bbf">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="qTh-ke-MyO">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="qTh-ke-MyO">
                             <connections>
-                                <segue destination="gCh-ba-cSF" kind="push" id="RRV-SJ-Ttp"/>
+                                <segue destination="gCh-ba-cSF" kind="push" identifier="profileFromChatRoom" id="RRV-SJ-Ttp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -186,6 +186,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="XBx-HM-N4Z"/>
+        <segue reference="RRV-SJ-Ttp"/>
     </inferredMetricsTieBreakers>
 </document>
