@@ -8,10 +8,17 @@
 
 #import "IKJChatRoomViewController.h"
 #import "IKJChatRoomTableViewCell.h"
+<<<<<<< HEAD
 #import "IKJBlurrerManager.h"
 #import "IKJBlurrer.h"
+=======
+#import "IKJChatViewController.h"
+>>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
 @interface IKJChatRoomViewController ()
+
+@property (nonatomic) BOOL shouldShowChat;
+@property (nonatomic) BOOL isScrolling;
 
 @end
 
@@ -33,8 +40,11 @@
     [self configureBannerWithImage:[UIImage imageNamed:@"tiger"] height:200 blurRadius:12 blurTintColor:[UIColor colorWithWhite:0 alpha:0.5] saturationFactor:1];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    self.shouldShowChat = YES;
+    
     [super viewDidAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"updated_blurrers" object:nil];
 }
@@ -49,6 +59,48 @@
 {
     [self.tableView reloadData];
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [super scrollViewDidScroll:scrollView];
+    if (self.shouldShowChat) {
+        float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
+        if (bottomEdge < scrollView.contentSize.height) {
+            self.shouldShowChat = NO;
+        }
+    }
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    //[super scrollViewWillBeginDragging:scrollView];   // pull to refresh
+    
+    self.isScrolling = YES;
+    NSLog(@"+scrollViewWillBeginDragging");
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    //[super scrollViewDidEndDragging:scrollView willDecelerate:decelerate];    // pull to refresh
+    
+    if(!decelerate) {
+        self.isScrolling = NO;
+    }
+    NSLog(@"%@scrollViewDidEndDragging", self.isScrolling ? @"" : @"-");
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    self.isScrolling = NO;
+    if (!self.shouldShowChat) {
+        IKJChatViewController *vc = [[IKJChatViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
+    NSLog(@"-scrollViewDidEndDecelerating");
+}
+
+>>>>>>> 8b3976ffa767f5096cfdff1bc1342fc3021de057
 
 - (void)didReceiveMemoryWarning
 {

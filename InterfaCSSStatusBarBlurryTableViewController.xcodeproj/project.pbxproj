@@ -14,6 +14,7 @@
 		672B6DC319438F3300094C8F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B6DC219438F3300094C8F /* MainStoryboard.storyboard */; };
 		672B6DC71943903400094C8F /* IKJChatRoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DC61943903400094C8F /* IKJChatRoomViewController.m */; };
 		672B6DCA1943922E00094C8F /* IKJChatRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DC91943922E00094C8F /* IKJChatRoomTableViewCell.m */; };
+		672B6DCD19439FB800094C8F /* IKJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 672B6DCC19439FB800094C8F /* IKJChatViewController.m */; };
 		A045AF161943896F00DEF243 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF151943896F00DEF243 /* Foundation.framework */; };
 		A045AF181943896F00DEF243 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF171943896F00DEF243 /* CoreGraphics.framework */; };
 		A045AF1A1943896F00DEF243 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A045AF191943896F00DEF243 /* UIKit.framework */; };
@@ -54,6 +55,8 @@
 		672B6DC61943903400094C8F /* IKJChatRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChatRoomViewController.m; sourceTree = "<group>"; };
 		672B6DC81943922E00094C8F /* IKJChatRoomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJChatRoomTableViewCell.h; sourceTree = "<group>"; };
 		672B6DC91943922E00094C8F /* IKJChatRoomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChatRoomTableViewCell.m; sourceTree = "<group>"; };
+		672B6DCB19439FB800094C8F /* IKJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJChatViewController.h; sourceTree = "<group>"; };
+		672B6DCC19439FB800094C8F /* IKJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJChatViewController.m; sourceTree = "<group>"; };
 		A045AF121943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InterfaCSSStatusBarBlurryTableViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A045AF151943896F00DEF243 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A045AF171943896F00DEF243 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */,
 				672B6DC81943922E00094C8F /* IKJChatRoomTableViewCell.h */,
 				672B6DC91943922E00094C8F /* IKJChatRoomTableViewCell.m */,
+				672B6DCB19439FB800094C8F /* IKJChatViewController.h */,
+				672B6DCC19439FB800094C8F /* IKJChatViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 				A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */,
 				A045AF221943896F00DEF243 /* main.m in Sources */,
 				A045AF4C1943967D00DEF243 /* IKJSettingsViewController.m in Sources */,
+				672B6DCD19439FB800094C8F /* IKJChatViewController.m in Sources */,
 				A045AF261943896F00DEF243 /* IKJAppDelegate.m in Sources */,
 				672B6DCA1943922E00094C8F /* IKJChatRoomTableViewCell.m in Sources */,
 				6005A2B01943981C00B2608C /* IKJBlurrerManager.m in Sources */,
