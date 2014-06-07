@@ -66,7 +66,7 @@
             </objects>
             <point key="canvasLocation" x="566" y="-118"/>
         </scene>
-        <!--Settings View Controller - Settings-->
+        <!--Settings View Controller - Profile-->
         <scene sceneID="Pp0-i7-oBN">
             <objects>
                 <viewController id="gCh-ba-cSF" customClass="IKJSettingsViewController" sceneMemberID="viewController">
@@ -99,17 +99,30 @@
                                     <outlet property="delegate" destination="gCh-ba-cSF" id="Clt-wg-Yid"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzB-qk-bXN">
+                                <rect key="frame" x="-1" y="518" width="322" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start Chatting">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAction:" destination="gCh-ba-cSF" eventType="touchUpInside" id="JKL-rx-BQR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="o63-xQ-009" firstAttribute="top" secondItem="NPr-Js-YME" secondAttribute="bottom" constant="8" id="2jM-Hy-0WE"/>
                             <constraint firstAttribute="trailing" secondItem="o63-xQ-009" secondAttribute="trailing" constant="20" id="F7e-7f-sJ6"/>
+                            <constraint firstItem="AzB-qk-bXN" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="-1" id="Ow2-Sr-r4s"/>
+                            <constraint firstItem="lOu-Pu-csh" firstAttribute="top" secondItem="AzB-qk-bXN" secondAttribute="bottom" constant="20" id="PwN-oN-0nY"/>
+                            <constraint firstAttribute="trailing" secondItem="AzB-qk-bXN" secondAttribute="trailing" constant="-1" id="bZ9-w1-Gip"/>
                             <constraint firstAttribute="centerX" secondItem="NPr-Js-YME" secondAttribute="centerX" id="gtY-Da-ceT"/>
                             <constraint firstItem="NPr-Js-YME" firstAttribute="top" secondItem="qo5-ZF-7BW" secondAttribute="bottom" constant="20" symbolic="YES" id="ujR-6B-e0n"/>
                             <constraint firstItem="o63-xQ-009" firstAttribute="leading" secondItem="aS9-MY-IJ4" secondAttribute="leading" constant="20" id="wNu-8k-th5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="Ipo-JT-wj5">
+                    <navigationItem key="navigationItem" title="Profile" id="Ipo-JT-wj5">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="SPw-0b-MZE">
                             <connections>
                                 <action selector="saveAction:" destination="gCh-ba-cSF" id="1gg-Gt-cWf"/>
@@ -120,6 +133,8 @@
                     <connections>
                         <outlet property="imageView" destination="NPr-Js-YME" id="gPk-cg-ivo"/>
                         <outlet property="nameTextField" destination="o63-xQ-009" id="uz0-TX-0fo"/>
+                        <outlet property="startButton" destination="AzB-qk-bXN" id="wkl-ha-ytY"/>
+                        <segue destination="hC1-0U-2EG" kind="push" identifier="start" id="idl-lp-ZvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPx-6I-Z2Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +157,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="hC1-0U-2EG" kind="relationship" relationship="rootViewController" id="rVp-8Z-rKt"/>
+                        <segue destination="gCh-ba-cSF" kind="relationship" relationship="rootViewController" id="XBx-HM-N4Z"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uEb-M4-cFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,4 +170,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="RRV-SJ-Ttp"/>
+    </inferredMetricsTieBreakers>
 </document>
