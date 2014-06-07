@@ -62,7 +62,7 @@
     [super scrollViewDidScroll:scrollView];
     if (self.shouldShowChat) {
         float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
-        if (bottomEdge < scrollView.contentSize.height) {
+        if (bottomEdge >= scrollView.contentSize.height) {
             self.shouldShowChat = NO;
         }
     }
