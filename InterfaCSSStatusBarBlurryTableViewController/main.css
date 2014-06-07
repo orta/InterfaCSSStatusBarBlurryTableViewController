@@ -11,6 +11,11 @@ UIImageView.circle {
     clipsToBounds: YES;
 }
 
+.profile UIButton {
+    borderColor: #7f7f7f;
+    borderWidth: 0.5;
+}
+
 .green {
     backgroundColor: @green;
 }

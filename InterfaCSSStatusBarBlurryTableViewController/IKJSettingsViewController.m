@@ -44,6 +44,7 @@ static NSArray *Colors = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.styleClassISS = @"profile";
     self.imageView.styleClassISS = @"circle";
     
     IKJBlurrerManager *manager = [IKJBlurrerManager sharedManager];
@@ -151,7 +152,7 @@ static NSArray *Colors = nil;
     [cell.contentView addStyleClassISS:@"selectableColor"];
     NSString *colorName = Colors[indexPath.row];
     [cell.contentView addStyleClassISS:colorName];
-    if ([_selectedIndexPath compare:indexPath] == NSOrderedSame)
+    if (_selectedIndexPath && [_selectedIndexPath compare:indexPath] == NSOrderedSame)
     {
         [cell.contentView addStyleClassISS:@"selectedColor" animated:YES];
     }
