@@ -1,6 +1,12 @@
+@green: rgb(76, 217, 100);
+
 UIImageView.circle {
     borderColor: #7f7f7f;
     borderWidth: 0.5;
     cornerRadius: 50;
     clipsToBounds: YES;
+}
+
+.green {
+    backgroundColor: @green;
 }
