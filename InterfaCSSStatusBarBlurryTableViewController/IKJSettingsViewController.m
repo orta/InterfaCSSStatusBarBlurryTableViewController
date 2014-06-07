@@ -14,6 +14,7 @@
 @interface IKJSettingsViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @end
 
@@ -65,6 +66,10 @@
     controller.sourceType = UIImagePickerControllerSourceTypeCamera;
 #endif
     [self presentViewController:controller animated:YES completion:^{}];
+}
+
+- (IBAction)startAction:(id)sender {
+    [self performSegueWithIdentifier:@"start" sender:self];
 }
 
 #pragma mark UIImagePickerControllerDelegate
