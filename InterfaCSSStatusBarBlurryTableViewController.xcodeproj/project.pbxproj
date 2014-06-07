@@ -26,9 +26,8 @@
 		A045AF391943896F00DEF243 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A045AF371943896F00DEF243 /* InfoPlist.strings */; };
 		A045AF3B1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF3A1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m */; };
 		A045AF4619438E4200DEF243 /* IKJBlurrer.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4519438E4200DEF243 /* IKJBlurrer.m */; };
-		A045AF4919438EA600DEF243 /* IKJBlurrerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */; };
 		A045AF4C1943967D00DEF243 /* IKJSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */; };
-
+		A045AF4E19439F0100DEF243 /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = A045AF4D19439F0100DEF243 /* main.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,10 +69,9 @@
 		A045AF3A1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaCSSStatusBarBlurryTableViewControllerTests.m; sourceTree = "<group>"; };
 		A045AF4419438E4200DEF243 /* IKJBlurrer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrer.h; sourceTree = "<group>"; };
 		A045AF4519438E4200DEF243 /* IKJBlurrer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrer.m; sourceTree = "<group>"; };
-		A045AF4719438EA600DEF243 /* IKJBlurrerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJBlurrerManager.h; sourceTree = "<group>"; };
-		A045AF4819438EA600DEF243 /* IKJBlurrerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJBlurrerManager.m; sourceTree = "<group>"; };
 		A045AF4A1943967D00DEF243 /* IKJSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKJSettingsViewController.h; sourceTree = "<group>"; };
 		A045AF4B1943967D00DEF243 /* IKJSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKJSettingsViewController.m; sourceTree = "<group>"; };
+		A045AF4D19439F0100DEF243 /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		BD329F8E2E29471890DBE87C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +148,7 @@
 		A045AF1B1943896F00DEF243 /* InterfaCSSStatusBarBlurryTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A045AF4D19439F0100DEF243 /* main.css */,
 				672B6DC41943900500094C8F /* ViewControllers */,
 				A045AF241943896F00DEF243 /* IKJAppDelegate.h */,
 				A045AF251943896F00DEF243 /* IKJAppDelegate.m */,
@@ -273,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A045AF4E19439F0100DEF243 /* main.css in Resources */,
 				672B6DC319438F3300094C8F /* MainStoryboard.storyboard in Resources */,
 				A045AF201943896F00DEF243 /* InfoPlist.strings in Resources */,
 				A045AF281943896F00DEF243 /* Images.xcassets in Resources */,
